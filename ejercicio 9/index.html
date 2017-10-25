@@ -1,5 +1,5 @@
 <!-- El siguiente código muestra hola varias veces, pero debería mostrar
-todos los días específicados en el array, además estos días deben mostrados
+todos los días específicados en el array, además estos días deben mostrarse
 como elementos de una lista ordenada  -->
 
 <!DOCTYPE html>
@@ -12,12 +12,19 @@ como elementos de una lista ordenada  -->
     <ol id="dias">
     </ol>
     <script type="text/javascript">
-      var dias = ["lunes", "martes", "miércoles"]
+      /* elementos (días) dentro del array */
+      var dias = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+      /* la variable parent_tag = ol de ID días */
       var parent_tag = document.getElementById('dias');
+      /* inicio de la función */
       dias.map(function(x){
-        var doc_element = document.createElement("p");
-        node = document.createTextNode("hola");
+        /* var doc_element se le asigna al elemento creado -en este caso me pide LI- */
+        var doc_element = document.createElement("li");
+        /* var node se le asigna el texto creado dias (de cada elemento del array) */
+        var node = document.createTextNode(x);
+        /* Agrego los cada texto de NODE (cada día y su texto) como LI */
         doc_element.appendChild(node);
+        /* al OL con ID dias le asigno como hijo los LI de doc_element */
         parent_tag.appendChild(doc_element);
       });
     </script>

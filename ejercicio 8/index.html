@@ -9,16 +9,32 @@ el valor llegue a cero y cambiar el texto de bomba por
     <title></title>
   </head>
   <body>
-    <h1> !!! La bomba !!! </h1>
-    <h2 id="timer">15</h2>
+    <h1 id="bomba"> !!! La bomba !!! </h1>
+    <h2 id="timer">3</h2>
     <script>
+        /* llamo al elemento con ID timer y le asigno la variable timer_tag */
         var timer_tag = document.getElementById('timer');
+
+        /* a la variable timer le asigno el contenido de la id timer (15) */
         var timer = timer_tag.innerHTML;
-        timer = parseInt(timer);
+
+        /* como 15 es un string, lo convierto a number con parseInt */
+        var timer = parseInt(timer);
+
+        /* comienzo la función setInterval*/
         setInterval(function(){
-          timer = timer - 1
+          /* Si el texto dentro del h1 BOMBA es diferente de BOOM, entonces el conteo (restando 1 siempre) va */
+          if ( document.getElementById('bomba').innerHTML != 'BOOM' ) {
+            timer = timer - 1
           timer_tag.innerHTML = timer
+          }
+          /* Si timer == 0 entonces el h1 dirá BOOM */
+          if (timer == 0) {
+            var h1 = document.getElementById('bomba');
+            h1.innerHTML = 'BOOM';
+            }
         }, 1000);
+
     </script>
   </body>
 </html>
